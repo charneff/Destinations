@@ -26,7 +26,8 @@ class DestinationsController < ApplicationController
 
   # PATCH/PUT /destinations/1
   def update
-    if @destination.update(destination_params)
+    @destination.completed = !@destination.completed 
+    if @destination.update(completed: @destination.completed)
       render json: @destination
     else
       render json: @destination.errors, status: :unprocessable_entity

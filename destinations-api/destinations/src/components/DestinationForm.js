@@ -16,13 +16,6 @@ class DestinationForm extends Component {
         })
     }
 
-    // handleOnCheckChange = e => {
-    //     const { checked } = e.target
-    //     this.setState({
-    //         completed: checked
-    //     })
-    // }
-
     handleOnSubmit = e => {
         e.preventDefault()
         const destination = {...this.state }
@@ -38,6 +31,7 @@ class DestinationForm extends Component {
         const {location, completed} = this.state
         return ( 
             <div>
+                <h2>Create Destination</h2>
                 <form onSubmit = {this.handleOnSubmit} >
                     <input 
                     type="text"
@@ -52,8 +46,8 @@ class DestinationForm extends Component {
                     onChange={ this.handleOnChange }
                     />
                     <br />
-                <button type='submit' > Add Destination </button> 
-                </form >
+                <button type='submit'> Add Destination </button> 
+                </form>
             </div >
         )
     }

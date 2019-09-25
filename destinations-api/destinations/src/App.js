@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux'
 import { getDestinations } from './actions/destinations'
-import DestinationForm from './containers/DestinationForm'
+import Home from './containers/Home'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Complete from './components/Complete'
+import Incomplete from './components/Incomplete'
+import DestinationForm from './components/DestinationForm'
+import Navbar from './components/Navbar'
+import List from './containers/List'
+
 
 class App extends Component {
 
@@ -12,15 +18,23 @@ class App extends Component {
     }
 
     render(){
-        const destinations = this.props.destinations.map((destination, i) => <li key={ i }>{destination.location} - {destination.completed ? "Been there" : "Waiting to go"} </li>)
-            return ( <div className="App">
-                <h2> Create Destination </h2>  
-                <DestinationForm /> 
-                <hr />
-                <h2> Places to Go: </h2>  
-                { this.props.loading ? <h3>Loading...</h3> : destinations } 
+        return ( 
+            <Router>
+                <Navbar />
+                <div className="App"> 
+                    <Switch>
+                        <Route exact path='/' component={Home}/>
+                        <Route exact path='/completed' component={Complete} />
+                        <Route exact path='/incomplete' component={Incomplete} />
+                        <Route exact path='/newdestination' component={DestinationForm} />
+                        <Route exact path='/alldestinations' component={List} />
+                    </Switch>
                 </div>
-            )
+            </Router>
+            // <div className="App"> 
+            //     <DestinationContainer />
+            // </div>
+        )
     }
 }
 
@@ -32,4 +46,4 @@ class App extends Component {
         }
     }
 
-    export default connect(mapStateToProps, { getDestinations })(App)
+    export default connect(mapStateToProps, { getDestinations})(App)

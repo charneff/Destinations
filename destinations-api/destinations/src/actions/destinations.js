@@ -24,3 +24,20 @@ export const addDestination = (destination) => {
             })
     }
 }
+
+export const completeDestination = (destination) => {
+    return(dispatch) => {
+        dispatch({ type: 'COMPLETE_DESTINATION' }, destination)
+        return fetch(`/destinations/${destination.id}`, {
+            method: 'PUT',
+            body: JSON.stringify(destination),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(destination => {
+            dispatch({ type: 'DESTINATION_COMPLETED', payload: destination})
+        })
+    }
+}
