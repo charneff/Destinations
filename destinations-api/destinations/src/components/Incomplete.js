@@ -5,7 +5,6 @@ import { completeDestination } from '../actions/destinations'
 
 class Incomplete extends Component {
     complete = e => {
-        // debugger
         const destination = this.props.destinations.find(d => d.id === parseInt(e.target.id))
         this.props.completeDestination(destination)
     }

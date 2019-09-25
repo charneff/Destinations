@@ -20,20 +20,18 @@ class App extends Component {
     render(){
         return ( 
             <Router>
-                <Navbar />
+                <div className="Nav"><Navbar/></div>
+                
                 <div className="App"> 
                     <Switch>
                         <Route exact path='/' component={Home}/>
-                        <Route exact path='/completed' component={Complete} />
-                        <Route exact path='/incomplete' component={Incomplete} />
-                        <Route exact path='/newdestination' component={DestinationForm} />
-                        <Route exact path='/alldestinations' component={List} />
+                        <Route exact path='/destinations/completed' component={Complete} />
+                        <Route exact path='/destinations/incomplete' component={Incomplete} />
+                        <Route exact path='/destinations/new' component={DestinationForm} />
+                        <Route exact path='/destinations' component={List} />
                     </Switch>
                 </div>
             </Router>
-            // <div className="App"> 
-            //     <DestinationContainer />
-            // </div>
         )
     }
 }

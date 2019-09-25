@@ -5,7 +5,7 @@ const link = {
     width: '100px',
     padding: '12px',
     margin: '0 6px 6px',
-    background: 'red',
+    background: 'pink',
     textDecoration: "none",
     color: 'white'
 }
@@ -17,35 +17,35 @@ const Navbar = () => {
             to='/'
             exact
             style={link}
-            activeStyle={{background: 'blue'}}
+            activeStyle={{background: 'black'}}
             >Home</NavLink>
 
             <NavLink
-            to='/completed'
+            to='/destinations/completed'
             exact
             style={link}
-            activeStyle={{background: 'blue'}}
+            activeStyle={{background: 'black'}}
             >Places I've Been</NavLink>
 
             <NavLink
-            to='/incomplete'
+            to='/destinations/incomplete'
             exact
             style={link}
-            activeStyle={{background: 'blue'}}
+            activeStyle={{background: 'black'}}
             >Places to Go</NavLink>
 
             <NavLink
-            to='/newdestination'
+            to='/destinations/new'
             exact
             style={link}
-            activeStyle={{background: 'blue'}}
+            activeStyle={{background: 'black'}}
             >Add Destination</NavLink>
 
             <NavLink
-            to='/alldestinations'
+            to='/destinations'
             exact
             style={link}
-            activeStyle={{background: 'blue'}}
+            activeStyle={{background: 'black'}}
             >All Destinations</NavLink>
         </div>
     )
