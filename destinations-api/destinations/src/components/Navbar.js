@@ -21,32 +21,40 @@ const Navbar = () => {
             >Home</NavLink>
 
             <NavLink
-            to='/destinations/completed'
+            to='/items/new'
             exact
             style={link}
             activeStyle={{background: 'black'}}
-            >Places I've Been</NavLink>
+            >Add New Item</NavLink>
 
             <NavLink
-            to='/destinations/incomplete'
+            to='/items'
             exact
             style={link}
             activeStyle={{background: 'black'}}
-            >Places to Go</NavLink>
+            >All Items</NavLink>
 
             <NavLink
-            to='/destinations/new'
+            to='/items/destinations'
             exact
             style={link}
             activeStyle={{background: 'black'}}
-            >Add Destination</NavLink>
+            >Destinations</NavLink>
 
             <NavLink
-            to='/destinations'
+            to='/items/accomplishments'
             exact
             style={link}
             activeStyle={{background: 'black'}}
-            >All Destinations</NavLink>
+            >Accomplishments</NavLink>
+            
+            <NavLink
+            to='/items/events'
+            exact
+            style={link}
+            activeStyle={{background: 'black'}}
+            >Events</NavLink>
+
         </div>
     )
 }

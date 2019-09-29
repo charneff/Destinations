@@ -6,6 +6,8 @@ class DestinationForm extends Component {
     state = {
         location: '',
         completed: false,
+        description: '',
+        category: '',
         loading: false
     }
 
@@ -23,16 +25,26 @@ class DestinationForm extends Component {
         this.setState({
             location: '',
             completed: false,
+            description: '',
+            category: '',
             loading: false 
         })
     }
 
     render() {
-        const {location, completed} = this.state
+        const {location, completed, description, category} = this.state
         return ( 
             <div>
-                <h2>Create Destination</h2>
+                <h2>Add a New Item<br/>or<br />A Previous Adventure</h2>
                 <form onSubmit = {this.handleOnSubmit} >
+                <h6>Select a Category</h6>
+                    <select value={ category } name="category" onChange={ this.handleOnChange }>
+                        <option value="null"></option>
+                        <option value="destination">Destination</option>
+                        <option value="accomplishment">Accomplishment</option>
+                        <option value="event">Event</option>
+                    </select>
+                    <h6>Check box if completed!</h6>
                     <input 
                     type="text"
                     name="location"
@@ -45,6 +57,13 @@ class DestinationForm extends Component {
                     checked= { completed }
                     onChange={ this.handleOnChange }
                     />
+                    <br />
+                    <h5>Enter specifics about your Bucket List Item here. </h5>
+                    <textarea
+                    name="description"
+                    value={ description }
+                    onChange={ this.handleOnChange }
+                    /> 
                     <br />
                 <button type='submit'> Add Destination </button> 
                 </form>

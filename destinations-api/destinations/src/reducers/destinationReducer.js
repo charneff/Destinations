@@ -27,18 +27,13 @@ export default (state = { destinations: [], loading: false }, action) => {
             }
         
         case 'COMPLETE_DESTINATION':
-            console.log('inside first then of completed')
-            // debugger;
             return {
                 ...state,
                 loading: true
             }
 
         case 'DESTINATION_COMPLETED':
-            // debugger;
-            console.log('inside completed_destination')
             let newDestinations = state.destinations.filter(destination => destination.id !== action.payload.id).concat(action.payload)
-            
             return {
                 ...state,
                 destinations: newDestinations,
@@ -49,7 +44,3 @@ export default (state = { destinations: [], loading: false }, action) => {
             return state
     }
 }
-
-//add 'COMPLETED_ADDED' action
-
-//on line 21 in 'update' filter out changed one, then add in payload

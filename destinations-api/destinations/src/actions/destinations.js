@@ -1,7 +1,7 @@
 export const getDestinations = () => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_DESTINATIONS' })
-        return fetch('./destinations')
+        return fetch('/destinations')
             .then(res => res.json())
             .then(destinations => dispatch({ type: "FETCH_DESTINATIONS", payload: destinations }))
     }

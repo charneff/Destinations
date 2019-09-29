@@ -5,10 +5,10 @@ import { connect } from 'react-redux'
 class Complete extends Component {
 
     render(){
-        const destinationList = this.props.destinations.map((destination, i) => <li key={ i }>{destination.location} {destination.completed ? <input id={destination.id}  type="hidden"></input> : null } </li>)
+        const completedItemList = this.props.items.map((item, i) => <li key={ i }>{item.location} {item.description} {item.completed ? <input id={item.id}  type="hidden"></input> : null } </li>)
             return ( <div className="Complete">
-                <h2> Where I've Been: </h2>  
-                { this.props.loading ? <h3>Loading...</h3> : destinationList } 
+                <h2>Did It:</h2>  
+                { this.props.loading ? <h3>Loading...</h3> : completedItemList } 
                 </div>
             )
     }
@@ -17,7 +17,7 @@ class Complete extends Component {
     const mapStateToProps = (state) => {
         console.log("I am state", state)
         return {
-            destinations: state.destinationReducer.destinations.filter(destination => destination.completed),
+            items: state.destinationReducer.destinations.filter(item => item.completed),
             loading: state.destinationReducer.loading
         }
     }

@@ -24,3 +24,10 @@
 .Nav {
   text-align: center
 }
+
+textarea {
+  width: 300px;
+  height: 150px;
+}
+  
+  

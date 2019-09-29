@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import { getDestinations } from './actions/destinations'
-import Home from './containers/Home'
+import Home from './components/Home'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Complete from './components/Complete'
 import Incomplete from './components/Incomplete'
-import DestinationForm from './components/DestinationForm'
+import ItemForm from './containers/ItemForm'
 import Navbar from './components/Navbar'
-import List from './containers/List'
+import List from './components/List'
+import ItemContainer from './containers/ItemContainer'
 
 
 class App extends Component {
@@ -20,15 +21,20 @@ class App extends Component {
     render(){
         return ( 
             <Router>
-                <div className="Nav"><Navbar/></div>
+                <div className="Nav">
+                    <Navbar/>
+                </div>
                 
                 <div className="App"> 
                     <Switch>
                         <Route exact path='/' component={Home}/>
-                        <Route exact path='/destinations/completed' component={Complete} />
-                        <Route exact path='/destinations/incomplete' component={Incomplete} />
-                        <Route exact path='/destinations/new' component={DestinationForm} />
-                        <Route exact path='/destinations' component={List} />
+                        <Route exact path='/items/completed' component={Complete} />
+                        <Route exact path='/items/incomplete' component={Incomplete} />
+                        <Route exact path='/items/new' component={ItemForm} />
+                        <Route exact path='/items' component={ItemContainer} />
+                        {/* <Route exact path='/items/destinations' component={DestinationContainer}/>
+                        <Route exact path='/items/accomplishments' component={AccomplishmentContainer}/>
+                        <Route exact path='/items/events' component={EventContainer}/> */}
                     </Switch>
                 </div>
             </Router>

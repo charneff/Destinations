@@ -18,7 +18,7 @@ class DestinationsController < ApplicationController
     @destination = Destination.new(destination_params)
 
     if @destination.save
-      render json: @destination, status: :created, location: @destination, completed: @destination
+      render json: @destination, status: :created, location: @destination, completed: @destination, description: @destination, category: @destination
     else
       render json: @destination.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class DestinationsController < ApplicationController
   # PATCH/PUT /destinations/1
   def update
     @destination.completed = !@destination.completed 
-    if @destination.update(completed: @destination.completed)
+    if @destination.update(completed: @destination.completed, description: @destination.description, category: @destination.category)
       render json: @destination
     else
       render json: @destination.errors, status: :unprocessable_entity
@@ -47,6 +47,6 @@ class DestinationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def destination_params
-      params.require(:destination).permit(:location, :completed)
+      params.require(:destination).permit(:location, :completed, :description, :category)
     end
 end

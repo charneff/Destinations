@@ -12,7 +12,7 @@ class Incomplete extends Component {
     render(){
         const destinations = this.props.destinations.map((destination, i) => <li key={ i }>{destination.location} {destination.completed ? null : <input type="checkbox" id={destination.id} onChange={this.complete}></input> } </li>)
             return ( <div className="Complete">
-                <h2> Places To Go: </h2>  
+                <h2>To Do:</h2>  
                 { this.props.loading ? <h3>Loading...</h3> : destinations } 
                 </div>
             )
@@ -22,7 +22,7 @@ class Incomplete extends Component {
     const mapStateToProps = (state) => {
         console.log("I am state", state)
         return {
-            destinations: state.destinationReducer.destinations.filter(destination => !destination.completed),
+            destinations: state.destinationReducer.destinations.filter(destination => !destination.completed && destination.category === "destination"),
             loading: state.destinationReducer.loading
         }
     }

@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 
 class List extends Component {
     render(){
-        const destinationList = this.props.destinations.map((destination, i) => <li key={ i }>{destination.location} {destination.completed ? <input id={destination.id}  type="hidden"></input> : null } </li>)
-            return ( <div className="Destinations">
-                <h2> All Destinations</h2>  
-                { this.props.loading ? <h3>Loading...</h3> : destinationList } 
+        const itemList = this.props.destinations.map((destination, i) => <li key={ i }>{destination.location} {destination.completed ? <input id={destination.id}  type="hidden"></input> : null } </li>)
+            return ( <div className="Items">
+                <h2> All Bucket List Items</h2>  
+                { this.props.loading ? <h3>Loading...</h3> : itemList } 
                 </div>
             )
     }
