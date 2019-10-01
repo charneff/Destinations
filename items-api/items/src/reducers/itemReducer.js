@@ -43,7 +43,6 @@ export default (state = { items: [], loading: false }, action) => {
 
         case 'DELETE_ITEM':
             console.log('got item to delete')
-            debugger;
             return {
                 ...state,
                 loading: true
@@ -51,11 +50,24 @@ export default (state = { items: [], loading: false }, action) => {
 
         case 'ITEM_DELETED':
             console.log('deleted item')
-            debugger
             let newList = state.items.filter(item => item.id !== action.payload.id)
             return {
                 ...state,
                 items: newList,
+                loading: false
+            }
+
+        case 'EDIT_ITEM':
+            console.log('got item to edit')
+            return{
+                ...state,
+                loading: true
+            }
+
+        case 'ITEM_EDITED':
+            console.log('edited item')
+            return{
+                ...state,
                 loading: false
             }
             

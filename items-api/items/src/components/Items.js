@@ -1,12 +1,18 @@
 import React from 'react'
 import '../App.css';
 import { connect } from 'react-redux'
-import { completeItem, deleteItem } from '../actions/items'
+import { completeItem, deleteItem, editItem } from '../actions/items'
 
 const Items = (props) => {
     const complete = e => {
         const item = props.incompleteItems.find(d => d.id === parseInt(e.target.id))
         props.completeItem(item)
+    }
+
+    const editedItem = e => {
+        const item = props.items.find(d => d.id ===parseInt(e.target.id))
+        debugger;
+        props.editItem(item)
     }
 
     const deleteItem = (e) => {
@@ -15,7 +21,7 @@ const Items = (props) => {
     }
 
     const completedItems = props.completedItems.map((item, i) => <li key={ i }><b>{item.title} </b><input id={item.id}  type="hidden"></input><br/><button id={item.id} type="button" onClick={deleteItem}>Delete</button><br/><br/></li>)
-    const incompleteItems = props.incompleteItems.map((item, i) => <li key={ i }><b>{item.title} </b><input type="checkbox" id={item.id} onChange={complete}></input><br/><button id={item.id} type="button" onClick={deleteItem}>Delete</button><br/><br/></li>)
+    const incompleteItems = props.incompleteItems.map((item, i) => <li key={ i }><b>{item.title} </b><input type="checkbox" id={item.id} onChange={complete}></input><br/><button id={item.id} type="button" onClick={editedItem}>Edit</button><button id={item.id} type="button" onClick={deleteItem}>Delete</button><br/><br/></li>)
         return ( <div className="Items">
             <h1>Bucket List!</h1>
             <h2><u>To Do:</u></h2>  
@@ -37,4 +43,4 @@ const Items = (props) => {
         }
     }
 
-    export default connect(mapStateToProps, { completeItem, deleteItem })(Items)
+    export default connect(mapStateToProps, { completeItem, deleteItem, editItem })(Items)

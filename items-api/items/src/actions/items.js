@@ -55,3 +55,20 @@ export const deleteItem = (item) => {
         .catch(err => console.error(err))
     }
 }
+
+export const editItem = (item) => {
+    return(dispatch) => {
+        dispatch({ type: 'EDIT_ITEM'}, item)
+        return fetch(`/items/${item.id}`, {
+            method: 'PUT',
+            body: JSON.stringify(item),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then( item => {
+            dispatch({ type: 'ITEM_EDITED', payload: item})
+        })
+    }
+}
