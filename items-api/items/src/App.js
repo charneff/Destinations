@@ -5,9 +5,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ItemForm from './containers/ItemForm'
 import Navbar from './components/Navbar'
 import ItemContainer from './containers/ItemContainer'
-import Accomplishments from './components/Accomplishments'
-import Events from './components/Events'
-import Destinations from './components/Destinations'
+import AccomplishmentContainer from './containers/AccomplishmentContainer'
+import EventContainer from './containers/EventContainer'
+import DestinationContainer from './containers/DestinationContainer'
 
 
 const App = (props) => {
@@ -22,9 +22,9 @@ const App = (props) => {
                     <Route exact path='/' component={Home}/>
                     <Route exact path='/items/new' component={ItemForm} />
                     <Route exact path='/items' component={ItemContainer} />
-                    <Route exact path='/items/accomplishments' component={Accomplishments}/>
-                    <Route exact path='/items/destinations' component={Destinations}/>
-                    <Route exact path='/items/events' component={Events}/> 
+                    <Route exact path='/items/accomplishments' component={AccomplishmentContainer}/>
+                    <Route exact path='/items/destinations' component={DestinationContainer}/>
+                    <Route exact path='/items/events' component={EventContainer}/> 
                 </Switch>
             </div>
         </Router>

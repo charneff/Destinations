@@ -27,7 +27,7 @@ export const addItem= (item) => {
 
 export const completeItem = (item) => {
     return(dispatch) => {
-        dispatch({ type: 'COMPLETE_ITEM' }, item,)
+        dispatch({ type: 'COMPLETE_ITEM' }, item)
         return fetch(`/items/${item.id}`, {
             method: 'PUT',
             body: JSON.stringify(item),
@@ -39,5 +39,19 @@ export const completeItem = (item) => {
         .then(item => {
             dispatch({ type: 'ITEM_COMPLETED', payload: item})
         })
+    }
+}
+
+export const deleteItem = (item) => {
+    return(dispatch) => {
+        dispatch({ type: 'DELETE_ITEM' })
+        return fetch(`items/${item.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(dispatch({ type: 'ITEM_DELETED', payload: item }))
+        .catch(err => console.error(err))
     }
 }

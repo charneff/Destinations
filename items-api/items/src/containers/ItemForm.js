@@ -4,7 +4,7 @@ import { addItem } from '../actions/items'
 
 class ItemForm extends Component {
     state = {
-        location: '',
+        title: '',
         completed: false,
         description: '',
         category: '',
@@ -23,7 +23,7 @@ class ItemForm extends Component {
         const item = {...this.state }
         this.props.addItem(item)
         this.setState({
-            location: '',
+            title: '',
             completed: false,
             description: '',
             category: '',
@@ -32,7 +32,7 @@ class ItemForm extends Component {
     }
 
     render() {
-        const {location, completed, description, category} = this.state
+        const {title, completed, description, category} = this.state
         return ( 
             <div>
                 <h2>Add an Item to Bucket List!</h2>
@@ -47,8 +47,8 @@ class ItemForm extends Component {
                     <h6>Check box if completed!</h6>
                     <input 
                     type="text"
-                    name="location"
-                    value={ location }
+                    name="title"
+                    value={ title }
                     onChange={ this.handleOnChange }
                     /> 
                     <input

@@ -11,13 +11,13 @@ const Events = (props) => {
     }
 
     
-    const completedItems = props.completedEvents.map((item, i) => <li key={ i }>{item.location} {item.completed ? null : <input type="checkbox" id={item.id} onChange={complete}></input> } </li>)
-    const incompleteItems = props.incompleteEvents.map((item, i)=> <li key={ i }>{item.location} {item.completed ? null : <input type="checkbox" id={item.id} onChange={complete}></input> } </li>)
-        return ( <div className="Events">
+    const completedItems = props.completedEvents.map((item, i) => <li key={ i }><b>{item.title}</b>{item.completed ? null : <input type="checkbox" id={item.id} onChange={complete}></input> }<br/>{item.description}<br/><br/> </li>)
+    const incompleteItems = props.incompleteEvents.map((item, i)=> <li key={ i }><b>{item.title}</b>{item.completed ? null : <input type="checkbox" id={item.id} onChange={complete}></input> }<br/>{item.description}<br/><br/> </li>)
+       return ( <div className="Events">
             <h2>Events:</h2>  
-            <h3>Still to Achieve:</h3>
+            <h3><u>Waiting to Go:</u></h3>
             { props.loading ? <h3>Loading...</h3> : incompleteItems } 
-            <h3>Got it Done:</h3>
+            <h3><u>Attended:</u></h3>
                 { props.loading ? <h3>Loading...</h3> : completedItems } 
             </div>
         )

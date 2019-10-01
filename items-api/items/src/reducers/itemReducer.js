@@ -26,18 +26,39 @@ export default (state = { items: [], loading: false }, action) => {
             }
         
         case 'COMPLETE_ITEM':
+            console.log('got item to complete')
             return {
                 ...state,
                 loading: true
             }
 
         case 'ITEM_COMPLETED':
+            console.log('completed item')
             let newItems = state.items.filter(item => item.id !== action.payload.id).concat(action.payload)
             return {
                 ...state,
                 items: newItems,
                 loading: false
             }
+
+        case 'DELETE_ITEM':
+            console.log('got item to delete')
+            debugger;
+            return {
+                ...state,
+                loading: true
+            }
+
+        case 'ITEM_DELETED':
+            console.log('deleted item')
+            debugger
+            let newList = state.items.filter(item => item.id !== action.payload.id)
+            return {
+                ...state,
+                items: newList,
+                loading: false
+            }
+            
 
         default:
             return state
