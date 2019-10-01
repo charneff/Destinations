@@ -9,19 +9,13 @@ const Items = (props) => {
         props.completeItem(item)
     }
 
-    const editedItem = e => {
-        const item = props.items.find(d => d.id ===parseInt(e.target.id))
-        debugger;
-        props.editItem(item)
-    }
-
     const deleteItem = (e) => {
         const item = props.items.find(d => d.id === parseInt(e.target.id))
         props.deleteItem(item)
     }
 
     const completedItems = props.completedItems.map((item, i) => <li key={ i }><b>{item.title} </b><input id={item.id}  type="hidden"></input><br/><button id={item.id} type="button" onClick={deleteItem}>Delete</button><br/><br/></li>)
-    const incompleteItems = props.incompleteItems.map((item, i) => <li key={ i }><b>{item.title} </b><input type="checkbox" id={item.id} onChange={complete}></input><br/><button id={item.id} type="button" onClick={editedItem}>Edit</button><button id={item.id} type="button" onClick={deleteItem}>Delete</button><br/><br/></li>)
+    const incompleteItems = props.incompleteItems.map((item, i) => <li key={ i }><b>{item.title} </b><input type="checkbox" id={item.id} onChange={complete}></input><br/><button id={item.id} type="button" onClick={deleteItem}>Delete</button><br/><br/></li>)
         return ( <div className="Items">
             <h1>Bucket List!</h1>
             <h2><u>To Do:</u></h2>  
