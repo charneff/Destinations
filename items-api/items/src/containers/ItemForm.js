@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addDestination } from '../actions/destinations'
+import { addItem } from '../actions/items'
 
-class DestinationForm extends Component {
+class ItemForm extends Component {
     state = {
         location: '',
         completed: false,
@@ -20,8 +20,8 @@ class DestinationForm extends Component {
 
     handleOnSubmit = e => {
         e.preventDefault()
-        const destination = {...this.state }
-        this.props.addDestination(destination)
+        const item = {...this.state }
+        this.props.addItem(item)
         this.setState({
             location: '',
             completed: false,
@@ -35,7 +35,7 @@ class DestinationForm extends Component {
         const {location, completed, description, category} = this.state
         return ( 
             <div>
-                <h2>Add a New Item<br/>or<br />A Previous Adventure</h2>
+                <h2>Add an Item to Bucket List!</h2>
                 <form onSubmit = {this.handleOnSubmit} >
                 <h6>Select a Category</h6>
                     <select value={ category } name="category" onChange={ this.handleOnChange }>
@@ -65,11 +65,11 @@ class DestinationForm extends Component {
                     onChange={ this.handleOnChange }
                     /> 
                     <br />
-                <button type='submit'> Add Destination </button> 
+                <button type='submit'> Add Item </button> 
                 </form>
             </div >
         )
     }
 }
 
-export default connect(null, { addDestination })(DestinationForm)
+export default connect(null, { addItem })(ItemForm)

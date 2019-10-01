@@ -1,6 +1,6 @@
-class CreateDestinations < ActiveRecord::Migration[6.0]
+class CreateItems < ActiveRecord::Migration[6.0]
   def change
-    create_table :destinations do |t|
+    create_table :items do |t|
       t.string :location 
       t.boolean :completed
       t.text :description

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_09_20_150946) do
 
-  create_table "destinations", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string "location"
     t.boolean "completed"
     t.text "description"
