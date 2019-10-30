@@ -14,7 +14,7 @@ const Navbar = () => {
     return(
         <div>
             <NavLink
-            to='/'
+            to='/home'
             exact
             style={link}
             activeStyle={{background: 'black'}}
@@ -47,7 +47,7 @@ const Navbar = () => {
             style={link}
             activeStyle={{background: 'black'}}
             >Accomplishments</NavLink>
-            
+
             <NavLink
             to='/items/events'
             exact
@@ -59,4 +59,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar 
+export default Navbar

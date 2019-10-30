@@ -12,10 +12,11 @@ class AccomplishmentContainer extends Component {
     render() {
         return (
             <div>
-                <Accomplishments/>
+              <Accomplishments/>
             </div>
         )
     }
+
 }
 
     const mapStateToProps = (state) => {

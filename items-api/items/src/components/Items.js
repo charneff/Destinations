@@ -13,7 +13,6 @@ const Items = (props) => {
         const item = props.items.find(d => d.id === parseInt(e.target.id))
         props.deleteItem(item)
     }
-    debugger;
 
     const sortedComplete = props.completedItems.sort(function(a,b) {
         var aTitle = a.title

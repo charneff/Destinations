@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 
 class Item extends Component {
-    debugger;
     render() {
         return (
             <div>
-               Item 
+               Item
             </div>
         )
     }

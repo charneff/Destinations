@@ -1,24 +1,5 @@
-# README
+cd into list-api and start Rails server on localhost:3001/ by running rails s 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In another terminal, cd into itms folder and run npm start to start React front end on localhost:3000
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Navigate to localhost:3000 and begin building your bucket list!

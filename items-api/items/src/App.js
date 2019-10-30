@@ -10,21 +10,21 @@ import EventContainer from './containers/EventContainer'
 import DestinationContainer from './containers/DestinationContainer'
 
 
-const App = (props) => {
-    return ( 
+const App = () => {
+    return (
         <Router>
             <div className="Nav">
                 <Navbar/>
             </div>
-            
-            <div className="App"> 
+
+            <div className="App">
                 <Switch>
-                    <Route exact path='/' component={Home}/>
+                    <Route exact path='/home' component={Home}/>
                     <Route exact path='/items/new' component={ItemForm} />
                     <Route exact path='/items' component={ItemContainer} />
                     <Route exact path='/items/accomplishments' component={AccomplishmentContainer}/>
                     <Route exact path='/items/destinations' component={DestinationContainer}/>
-                    <Route exact path='/items/events' component={EventContainer}/> 
+                    <Route exact path='/items/events' component={EventContainer}/>
                 </Switch>
             </div>
         </Router>
